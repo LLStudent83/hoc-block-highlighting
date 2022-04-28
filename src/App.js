@@ -10,19 +10,19 @@
 import React, { useState } from 'react';
 import './index.css';
 
-function contentWrapper(contentComponent) { // , wrapperComponent
+function contentWrapper(ContentComponent) { // , wrapperComponent
   return function WrappedContentComponent(props) {
     if (props.views > 1000) {
       return (
         <Popular>
-          {contentComponent(props)}
+          <ContentComponent {...props} />
         </Popular>
       );
     }
     if (props.views < 100) {
       return (
         <New>
-          {contentComponent(props)}
+          <ContentComponent {...props} />
         </New>
       );
     }
